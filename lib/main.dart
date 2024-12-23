@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whats/presentation/screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        //  primarySwatch: Colors.blue,
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -50,10 +55,12 @@ class MyApp extends StatelessWidget {
             preferredSize: const Size.fromHeight(1.0), // Height of the divider
             child: Container(
               color: Colors.grey, // Color of the line
-              height: 1.0, // Thickness of the line
+              height: 0.5, // Thickness of the line
             ),
           ),
         ),
+        // ignore: prefer_const_constructors
+        body: HomePage(),
       ),
     );
   }
