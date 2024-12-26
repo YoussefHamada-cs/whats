@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whats/presentation/widgets/custem_appber.dart';
+import 'package:whats/presentation/widgets/custom_popup_menu.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -27,7 +28,16 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-          onMenuSelected: handleMenuSelection, titleappber: 'Chat'),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.video_camera_front_outlined)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.call)),
+          CustomPopupMenu(onSelected: handleMenuSelection),
+        ],
+        // onMenuSelected: handleMenuSelection,
+        titleappber: 'Chat',
+      ),
     );
   }
 }

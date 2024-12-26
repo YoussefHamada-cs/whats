@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:whats/presentation/widgets/custom_popup_menu.dart';
+
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Function(dynamic) onMenuSelected;
+  //final Function(dynamic) onMenuSelected;
   final String titleappber;
-  const CustomAppBar({super.key, required this.onMenuSelected, required this.titleappber});
+  final List<Widget>? actions;
+  const CustomAppBar(
+      {super.key,/* required this.onMenuSelected*/required this.titleappber, this.actions});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title:  Text(titleappber),
-      actions: [
-        IconButton(
-            onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-        CustomPopupMenu(onSelected: onMenuSelected),
-      ],
+      title: Text(titleappber),
+      actions:actions,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1.0),
         child: Container(

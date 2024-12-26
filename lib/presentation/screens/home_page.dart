@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whats/presentation/widgets/body_home_page.dart';
 import 'package:whats/presentation/widgets/custem_appber.dart';
 import 'package:whats/presentation/widgets/custem_bottem_navigation_ber.dart';
+import 'package:whats/presentation/widgets/custom_popup_menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -43,7 +44,13 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.add),
       ),
       appBar: CustomAppBar(
-        onMenuSelected: _handleMenuSelection,
+        actions: [
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          CustomPopupMenu(onSelected: _handleMenuSelection),
+        ],
+      //  onMenuSelected: _handleMenuSelection,
         titleappber: 'WhatsApp',
       ),
       body: _pages[_currentIndex],
